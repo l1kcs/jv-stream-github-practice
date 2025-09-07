@@ -38,7 +38,7 @@ public class StreamPractice {
         return IntStream
                 .range(0, numbers.size())
                 .map((i -> i % 2 == 0 ? numbers.get(i) : numbers.get(i) - 1))
-                .filter(numb -> numb % 2 == 1)
+                .filter(numb -> numb % 2 != 0)
                 .average()
                 .orElseThrow(() ->
                         new NoSuchElementException("there is no such element in list:"
