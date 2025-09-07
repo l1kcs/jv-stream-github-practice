@@ -57,11 +57,16 @@ public class Candidate {
     }
 
     public Integer getTimeInUkraine() {
+        int sum = 0;
         if (this.periodsInUkr == null) {
             throw new RuntimeException("there is no periods of candidate in Ukraine");
         }
-        String[] datas = this.periodsInUkr.split("-");
-        return Integer.parseInt(datas[1]) - Integer.parseInt(datas[0]);
+        String[] datas = this.periodsInUkr.split(",");
+        for (String data : datas) {
+            String[] numbData = data.split("-");
+            sum += Integer.parseInt(numbData[1]) - Integer.parseInt(numbData[0]);
+        }
+        return sum;
     }
 
     @Override
