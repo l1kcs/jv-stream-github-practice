@@ -56,6 +56,14 @@ public class Candidate {
         this.name = name;
     }
 
+    public Integer getTimeInUkraine() {
+        if (this.periodsInUkr == null) {
+            throw new RuntimeException("there is no periods of candidate in Ukraine");
+        }
+        String[] datas = this.periodsInUkr.split("-");
+        return Integer.parseInt(datas[1]) - Integer.parseInt(datas[0]);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
