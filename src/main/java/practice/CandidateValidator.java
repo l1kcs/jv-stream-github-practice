@@ -16,20 +16,10 @@ public class CandidateValidator implements Predicate<Candidate> {
                 && candidate.getTimeInUkraine() >= TIME_THRESHOLD;
     }
 
-    @Override
-    public Predicate<Candidate> and(Predicate<? super Candidate> other) {
-        return Predicate.super.and(other);
+    private boolean checkTimeLivingInCountry(Candidate candidate) {
+        String[] dates = candidate.getPeriodsInUkr().split(SEPARATOR);
+        return Integer.parseInt(dates[END_INDEX])
+                - Integer.parseInt(dates[BEGIN_INDEX]) >= PERIOD_IN_UKR;
     }
-
-    @Override
-    public Predicate<Candidate> negate() {
-        return Predicate.super.negate();
-    }
-
-    @Override
-    public Predicate<Candidate> or(Predicate<? super Candidate> other) {
-        return Predicate.super.or(other);
-    }
-
     //write your code here
 }
