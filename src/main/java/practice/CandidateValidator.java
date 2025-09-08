@@ -13,7 +13,7 @@ public class CandidateValidator implements Predicate<Candidate> {
         return candidate.getAge() >= AGE_THRESHOLD
                 && candidate.isAllowedToVote()
                 && candidate.getNationality().equals(REQUIRED_NATIONALITY)
-                && candidate.getTimeInUkraine() >= TIME_THRESHOLD;
+                && checkTimeLivingInCountry(candidate);
     }
 
     private boolean checkTimeLivingInCountry(Candidate candidate) {
