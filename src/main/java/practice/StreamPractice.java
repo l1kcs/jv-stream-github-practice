@@ -113,6 +113,6 @@ public class StreamPractice {
                 .filter(candidateValidator::test)
                 .map(Candidate::getName)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
     }
 }
