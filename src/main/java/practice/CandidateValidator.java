@@ -6,7 +6,10 @@ import model.Candidate;
 public class CandidateValidator implements Predicate<Candidate> {
     private static final int AGE_THRESHOLD = 35;
     private static final String REQUIRED_NATIONALITY = "Ukrainian";
-    private static final int TIME_THRESHOLD = 10;
+    private static final int PERIOD_IN_UKR = 10;
+    private static final String SEPARATOR = "-";
+    private static final int END_INDEX = 1;
+    private static final int BEGIN_INDEX = 0;
 
     @Override
     public boolean test(Candidate candidate) {

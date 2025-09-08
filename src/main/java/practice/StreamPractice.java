@@ -58,7 +58,7 @@ public class StreamPractice {
                 .filter(obj -> obj.getSex() == Person.Sex.MAN
                         && obj.getAge() >= fromAge
                         && obj.getAge() <= toAge)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -77,7 +77,7 @@ public class StreamPractice {
                 .filter(obj -> obj.getAge() >= fromAge
                         && obj.getAge()
                         <= (obj.getSex() == Person.Sex.MAN ? maleToAge : femaleToAge))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -92,7 +92,7 @@ public class StreamPractice {
                 .map(Person::getCats)
                 .flatMap(Collection::stream)
                 .map(Cat::getName)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -113,6 +113,6 @@ public class StreamPractice {
                 .filter(candidateValidator::test)
                 .map(Candidate::getName)
                 .sorted()
-                .toList();
+                .collect(Collectors.toList());
     }
 }
