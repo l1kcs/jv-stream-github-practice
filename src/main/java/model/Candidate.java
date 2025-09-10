@@ -56,7 +56,12 @@ public class Candidate {
         this.name = name;
     }
 
-    public Integer getTimeInUkraine() {
+    /**
+     * Method below estimates sum of person's periods, which takes information from
+     * String periodsInUkr, where data in format : "1990-1995, 1998 - 20000" ,etc.
+     */
+
+    public Integer getPeriodInUkraine() {
         int sum = 0;
         if (this.periodsInUkr == null) {
             throw new RuntimeException("there is no periods of candidate in Ukraine");
