@@ -3,7 +3,6 @@ package practice;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import model.Candidate;
 import model.Cat;
@@ -56,7 +55,7 @@ public class StreamPractice {
                 .filter(obj -> obj.getSex() == Person.Sex.MAN // Select men within age range
                         && obj.getAge() >= fromAge
                         && obj.getAge() <= toAge)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -75,7 +74,7 @@ public class StreamPractice {
                 .filter(obj -> obj.getAge() >= fromAge //Select people within workable age range
                         && obj.getAge()
                         <= (obj.getSex() == Person.Sex.MAN ? maleToAge : femaleToAge))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -88,7 +87,7 @@ public class StreamPractice {
                 .filter(obj -> !obj.getCats().isEmpty()
                         && obj.getAge() >= femaleAge && obj.getSex() == Person.Sex.WOMAN)
                 .flatMap(obj -> obj.getCats().stream().map(Cat::getName))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -109,6 +108,6 @@ public class StreamPractice {
                 .filter(candidateValidator::test)
                 .map(Candidate::getName)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
     }
 }
